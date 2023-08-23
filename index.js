@@ -1,6 +1,13 @@
 import "./AgoraRTC_N-production.js";
 
 import { $, getQueryVariable } from "./utils.js";
+
+if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+  // 初始化
+  const vConsole = new VConsole();
+  console.log("Hello world");
+}
+
 var localVideo, localAudio;
 let remoteAudio;
 const autoSubVideo = false;
