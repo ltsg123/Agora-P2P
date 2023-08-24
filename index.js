@@ -129,6 +129,8 @@ function handleUserUnpublished(user, mediaType) {
 function handleUserLeft(user) {
   const id = user.uid;
   $(`remote-${id}`).remove();
+  $(`player-${id}`).remove();
+  $(`video-${id}`).remove();
 }
 
 onload = () => {
@@ -164,6 +166,10 @@ function bindButtons() {
   };
   $("leave").onclick = async () => {
     await client.leave();
+    $("local_volume").innerHTML = "";
+    $("remote_volume").innerHTML = "";
+    $("remote_list").innerHTML = "";
+    $("remote-stream-list").innerHTML = "";
   };
 
   $("pub").onclick = async () => {
